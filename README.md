@@ -1,14 +1,79 @@
 # custom_line_indicator_bottom_navbar
 
-A new Flutter package project.
+A fully customizable bottom navigation bar with line indicators and gradient.
 
-## Getting Started
+<div style="display:flex">
+<img width="355" alt="alert2" src="https://user-images.githubusercontent.com/44444254/99188713-de0dc280-2776-11eb-84ca-325a7fe744aa.gif" width="200">
+<img width="355" alt="alert2" src="https://user-images.githubusercontent.com/44444254/99188508-d4d02600-2775-11eb-940e-a1f61ebd9bbe.png" width="200">
+<img width="344" alt="alert1" src="https://user-images.githubusercontent.com/44444254/99188586-195bc180-2776-11eb-95d6-6ee7c7b81f50.png" width="200">
+<img width="344" alt="alert1" src="https://user-images.githubusercontent.com/44444254/99188590-1b258500-2776-11eb-842c-45508c90e812.png" width="200">
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+<div/>
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+<b>Usage without gradient: </b>
+
+            class MyExample extends StatefulWidget {
+            @override
+            _MyExampleState createState() => _MyExampleState();
+            }
+
+            class _MyExampleState extends State<MyExample> {
+            int _selectedIndex = 0; //default index
+
+            List<Widget> _widgetOptions = [
+                Text('Home'),
+                Text('Account'),
+                Text('Leaves'),
+                Text('Loyalty'),
+                Text('Requests'),
+            ];
+            @override
+            Widget build(BuildContext context) {
+                return Scaffold(
+                appBar: AppBar(
+                    title: Text('Example'),
+                ),
+                body: Center(
+                    child: _widgetOptions.elementAt(_selectedIndex),
+                ),
+                bottomNavigationBar: CustomLineIndicatorBottomNavbar(
+                    selectedColor: Colors.blue,
+                    unSelectedColor: Colors.black54,
+                    backgroundColor: Colors.white,
+                    currentIndex: _selectedIndex,
+                    onTap: (index) {
+                    setState(() {
+                        _selectedIndex = index;
+                    });
+                    },
+                    enableLineIndicator: true,
+                    lineIndicatorWidth: 3,
+                    indicatorType: IndicatorType.Top,
+                    // gradient: LinearGradient(
+                    //   colors: kGradients,
+                    // ),
+
+                    customBottomBarItems: [
+                    CustomBottomBarItems(
+                        label: 'Home',
+                        icon: Icons.home,
+                    ),
+                    CustomBottomBarItems(
+                        label: 'Account',
+                        icon: Icons.account_box_outlined,
+                    ),
+                    CustomBottomBarItems(
+                        label: 'Leaves', icon: Icons.calendar_today_outlined),
+                    CustomBottomBarItems(
+                        label: 'Loyalty',
+                        icon: Icons.card_giftcard_rounded,
+                    ),
+                    CustomBottomBarItems(
+                        label: 'Requests',
+                        icon: Icons.list,
+                    ),
+                    ],
+                ),
+                );
+            }
+            }
