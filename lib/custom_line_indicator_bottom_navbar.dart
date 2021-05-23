@@ -5,30 +5,30 @@ import 'package:flutter/material.dart';
 enum IndicatorType { Top, Bottom }
 
 class CustomLineIndicatorBottomNavbar extends StatelessWidget {
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final List<CustomBottomBarItems> customBottomBarItems;
-  final Color selectedColor;
-  final Color unSelectedColor;
+  final Color? selectedColor;
+  final Color? unSelectedColor;
   final double unselectedFontSize;
-  final Color splashColor;
+  final Color? splashColor;
   final int currentIndex;
   final bool enableLineIndicator;
   final double lineIndicatorWidth;
   final IndicatorType indicatorType;
   final Function(int) onTap;
   final double selectedFontSize;
-  final LinearGradient gradient;
+  final LinearGradient? gradient;
 
   CustomLineIndicatorBottomNavbar({
     this.backgroundColor,
     this.selectedColor,
-    @required this.customBottomBarItems,
+    required this.customBottomBarItems,
     this.unSelectedColor,
     this.unselectedFontSize = 11,
     this.selectedFontSize = 12,
     this.splashColor,
     this.currentIndex = 0,
-    this.onTap,
+    required this.onTap,
     this.enableLineIndicator = true,
     this.lineIndicatorWidth = 3,
     this.indicatorType = IndicatorType.Top,
@@ -79,20 +79,20 @@ class CustomBottomBarItems {
   final String label;
 
   CustomBottomBarItems({
-    @required this.icon,
-    @required this.label,
+    required this.icon,
+    required this.label,
   });
 }
 
 class CustomLineIndicatorBottomNavbarItems extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final Color selectedColor;
-  final Color unSelectedColor;
+  final IconData? icon;
+  final String? label;
+  final Color? selectedColor;
+  final Color? unSelectedColor;
   final double unSelectedFontSize;
   final double selectedFontSize;
-  final Color splashColor;
-  final int currentIndex;
+  final Color? splashColor;
+  final int? currentIndex;
   final int index;
   final Function(int) onTap;
   final bool enableLineIndicator;
@@ -108,8 +108,8 @@ class CustomLineIndicatorBottomNavbarItems extends StatelessWidget {
     this.selectedFontSize = 12,
     this.splashColor,
     this.currentIndex,
-    this.onTap,
-    this.index,
+    required this.onTap,
+    required this.index,
     this.enableLineIndicator = true,
     this.lineIndicatorWidth = 3,
     this.indicatorType = IndicatorType.Top,
@@ -137,7 +137,7 @@ class CustomLineIndicatorBottomNavbarItems extends StatelessWidget {
                           ? BorderSide(
                               color: currentIndex == index
                                   ? selectedColor ??
-                                      bottomTheme.selectedItemColor
+                                      bottomTheme.selectedItemColor!
                                   : Colors.transparent,
                               width: lineIndicatorWidth,
                             )
@@ -146,7 +146,7 @@ class CustomLineIndicatorBottomNavbarItems extends StatelessWidget {
                           ? BorderSide(
                               color: currentIndex == index
                                   ? selectedColor ??
-                                      bottomTheme.selectedItemColor
+                                      bottomTheme.selectedItemColor!
                                   : Colors.transparent,
                               width: lineIndicatorWidth,
                             )
