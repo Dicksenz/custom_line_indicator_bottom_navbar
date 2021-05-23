@@ -41,7 +41,7 @@ class _MyExampleState extends State<MyExample> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: CustomLineIndicatorBottomNavbar(
-        selectedColor: Colors.white,
+        selectedColor: Colors.blue,
         unSelectedColor: Colors.black54,
         backgroundColor: Colors.white,
         currentIndex: _selectedIndex,
@@ -53,9 +53,9 @@ class _MyExampleState extends State<MyExample> {
         enableLineIndicator: true,
         lineIndicatorWidth: 3,
         indicatorType: IndicatorType.Top,
-        gradient: LinearGradient(
-          colors: [Colors.pink, Colors.yellow],
-        ),
+        // gradient: LinearGradient(
+        //   colors: [Colors.pink, Colors.yellow],
+        // ),
         customBottomBarItems: [
           CustomBottomBarItems(
             label: 'Home',
