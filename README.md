@@ -141,5 +141,4 @@ A fully customizable bottom navigation bar with line indicators and gradient.
             ),
         );
         }
-
-}
+    }
