@@ -1,11 +1,11 @@
 name: custom_line_indicator_bottom_navbar
 description: A fully customisable bottom navbar with top,bottom indicator and gradients.
-version: 0.0.3
+version: 0.0.4
 # author:
 homepage: https://github.com/Dicksenz/custom_line_indicator_bottom_navbar
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
