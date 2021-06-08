@@ -1,1 +1,1 @@
-- 0.0.3: without null safety
+- 0.0.5: without null safety - SafeArea added

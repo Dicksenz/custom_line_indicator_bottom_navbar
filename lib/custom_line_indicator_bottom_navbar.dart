@@ -38,36 +38,38 @@ class CustomLineIndicatorBottomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     final BottomNavigationBarThemeData bottomTheme =
         BottomNavigationBarTheme.of(context);
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: backgroundColor ?? bottomTheme.backgroundColor,
-        gradient: gradient,
-      ),
-      child: SingleChildScrollView(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            for (int i = 0; i < customBottomBarItems.length; i++) ...[
-              Expanded(
-                child: CustomLineIndicatorBottomNavbarItems(
-                  selectedColor: selectedColor,
-                  unSelectedColor: unSelectedColor,
-                  icon: customBottomBarItems[i].icon,
-                  label: customBottomBarItems[i].label,
-                  unSelectedFontSize: unselectedFontSize,
-                  selectedFontSize: selectedFontSize,
-                  splashColor: splashColor,
-                  currentIndex: currentIndex,
-                  enableLineIndicator: enableLineIndicator,
-                  lineIndicatorWidth: lineIndicatorWidth,
-                  indicatorType: indicatorType,
-                  index: i,
-                  onTap: onTap,
+    return SafeArea(
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: backgroundColor ?? bottomTheme.backgroundColor,
+          gradient: gradient,
+        ),
+        child: SingleChildScrollView(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              for (int i = 0; i < customBottomBarItems.length; i++) ...[
+                Expanded(
+                  child: CustomLineIndicatorBottomNavbarItems(
+                    selectedColor: selectedColor,
+                    unSelectedColor: unSelectedColor,
+                    icon: customBottomBarItems[i].icon,
+                    label: customBottomBarItems[i].label,
+                    unSelectedFontSize: unselectedFontSize,
+                    selectedFontSize: selectedFontSize,
+                    splashColor: splashColor,
+                    currentIndex: currentIndex,
+                    enableLineIndicator: enableLineIndicator,
+                    lineIndicatorWidth: lineIndicatorWidth,
+                    indicatorType: indicatorType,
+                    index: i,
+                    onTap: onTap,
+                  ),
                 ),
-              ),
-            ]
-          ],
+              ]
+            ],
+          ),
         ),
       ),
     );
