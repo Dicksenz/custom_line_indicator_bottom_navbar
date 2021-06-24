@@ -1,2 +1,2 @@
-- 0.0.4: migrate to null safety
-- 0.0.3: without null safety
+- 0.0.7: migrate to null safety
+- 0.0.6: without null safety - SafeArea fixed

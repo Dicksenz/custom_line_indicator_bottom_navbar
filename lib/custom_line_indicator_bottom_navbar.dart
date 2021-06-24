@@ -120,68 +120,70 @@ class CustomLineIndicatorBottomNavbarItems extends StatelessWidget {
     final BottomNavigationBarThemeData bottomTheme =
         BottomNavigationBarTheme.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.only(right: 7),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          splashColor: splashColor ?? Theme.of(context).splashColor,
-          onTap: () {
-            onTap(index);
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              border: enableLineIndicator
-                  ? Border(
-                      bottom: indicatorType == IndicatorType.Bottom
-                          ? BorderSide(
-                              color: currentIndex == index
-                                  ? selectedColor ??
-                                      bottomTheme.selectedItemColor!
-                                  : Colors.transparent,
-                              width: lineIndicatorWidth,
-                            )
-                          : BorderSide(color: Colors.transparent),
-                      top: indicatorType == IndicatorType.Top
-                          ? BorderSide(
-                              color: currentIndex == index
-                                  ? selectedColor ??
-                                      bottomTheme.selectedItemColor!
-                                  : Colors.transparent,
-                              width: lineIndicatorWidth,
-                            )
-                          : BorderSide(color: Colors.transparent),
-                    )
-                  : null,
-            ),
-            padding: EdgeInsets.symmetric(vertical: 7.0),
-            // width: 70,
-            // height: 60,
-            child: Column(
-              children: [
-                Icon(
-                  icon,
-                  color: currentIndex == index
-                      ? selectedColor ?? bottomTheme.unselectedItemColor
-                      : unSelectedColor,
-                ),
-                SizedBox(
-                  height: 5.0,
-                ),
-                Text(
-                  '$label',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: currentIndex == index
-                        ? selectedFontSize
-                        : unSelectedFontSize,
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 7),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            splashColor: splashColor ?? Theme.of(context).splashColor,
+            onTap: () {
+              onTap(index);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: enableLineIndicator
+                    ? Border(
+                        bottom: indicatorType == IndicatorType.Bottom
+                            ? BorderSide(
+                                color: currentIndex == index
+                                    ? selectedColor ??
+                                        bottomTheme.selectedItemColor!
+                                    : Colors.transparent,
+                                width: lineIndicatorWidth,
+                              )
+                            : BorderSide(color: Colors.transparent),
+                        top: indicatorType == IndicatorType.Top
+                            ? BorderSide(
+                                color: currentIndex == index
+                                    ? selectedColor ??
+                                        bottomTheme.selectedItemColor!
+                                    : Colors.transparent,
+                                width: lineIndicatorWidth,
+                              )
+                            : BorderSide(color: Colors.transparent),
+                      )
+                    : null,
+              ),
+              padding: EdgeInsets.symmetric(vertical: 7.0),
+              // width: 70,
+              // height: 60,
+              child: Column(
+                children: [
+                  Icon(
+                    icon,
                     color: currentIndex == index
                         ? selectedColor ?? bottomTheme.unselectedItemColor
                         : unSelectedColor,
                   ),
-                ),
-              ],
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(
+                    '$label',
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: currentIndex == index
+                          ? selectedFontSize
+                          : unSelectedFontSize,
+                      color: currentIndex == index
+                          ? selectedColor ?? bottomTheme.unselectedItemColor
+                          : unSelectedColor,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
