@@ -17,6 +17,8 @@ class CustomLineIndicatorBottomNavbar extends StatelessWidget {
   final IndicatorType indicatorType;
   final Function(int) onTap;
   final double selectedFontSize;
+  final double selectedIconSize;
+  final double unselectedIconSize;
   final LinearGradient? gradient;
 
   CustomLineIndicatorBottomNavbar({
@@ -26,6 +28,8 @@ class CustomLineIndicatorBottomNavbar extends StatelessWidget {
     this.unSelectedColor,
     this.unselectedFontSize = 11,
     this.selectedFontSize = 12,
+    this.selectedIconSize = 20,
+    this.unselectedIconSize = 15,
     this.splashColor,
     this.currentIndex = 0,
     required this.onTap,
@@ -57,6 +61,8 @@ class CustomLineIndicatorBottomNavbar extends StatelessWidget {
                   label: customBottomBarItems[i].label,
                   unSelectedFontSize: unselectedFontSize,
                   selectedFontSize: selectedFontSize,
+                  unselectedIconSize: unselectedIconSize,
+                  selectedIconSize: selectedIconSize,
                   splashColor: splashColor,
                   currentIndex: currentIndex,
                   enableLineIndicator: enableLineIndicator,
@@ -90,6 +96,9 @@ class CustomLineIndicatorBottomNavbarItems extends StatelessWidget {
   final Color? selectedColor;
   final Color? unSelectedColor;
   final double unSelectedFontSize;
+  final double selectedIconSize;
+  final double unselectedIconSize;
+
   final double selectedFontSize;
   final Color? splashColor;
   final int? currentIndex;
@@ -106,6 +115,8 @@ class CustomLineIndicatorBottomNavbarItems extends StatelessWidget {
     this.unSelectedColor,
     this.unSelectedFontSize = 11,
     this.selectedFontSize = 12,
+    this.selectedIconSize = 20,
+    this.unselectedIconSize = 15,
     this.splashColor,
     this.currentIndex,
     required this.onTap,
@@ -162,6 +173,9 @@ class CustomLineIndicatorBottomNavbarItems extends StatelessWidget {
                 children: [
                   Icon(
                     icon,
+                    size: currentIndex == index
+                        ? selectedIconSize
+                        : unselectedIconSize,
                     color: currentIndex == index
                         ? selectedColor ?? bottomTheme.unselectedItemColor
                         : unSelectedColor,

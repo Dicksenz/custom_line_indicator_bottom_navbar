@@ -1,2 +1,3 @@
+- 0.0.8: selectedIconSize and UnselectedIconSize added
 - 0.0.7: migrate to null safety
 - 0.0.6: without null safety - SafeArea fixed

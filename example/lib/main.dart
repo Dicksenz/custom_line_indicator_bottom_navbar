@@ -45,6 +45,8 @@ class _MyExampleState extends State<MyExample> {
         unSelectedColor: Colors.black54,
         backgroundColor: Colors.white,
         currentIndex: _selectedIndex,
+        unselectedIconSize: 15,
+        selectedIconSize: 20,
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
